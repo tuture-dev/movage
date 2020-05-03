@@ -6,7 +6,7 @@ const { moveImages } = require('..');
 
 program
   .version(version)
-  .description('Simple tool for moving images within your markdown document.')
+  .description('Simple tool for moving images in your markdown document.')
   .arguments('[filename]')
   .action((filename) => {
     mdPath = filename;
