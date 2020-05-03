@@ -1,0 +1,18 @@
+#!/usr/bin/env node
+
+const program = require('commander');
+const version = require('../package.json');
+const { moveImages } = require('..');
+
+program
+  .version(version)
+  .description('Simple tool for moving images within your markdown document.')
+  .arguments('[filename]')
+  .action((filename) => {
+    mdPath = filename;
+  })
+  .option('-o, --output <destination>', 'path to output file')
+  .option('-c, --concurrency <limit>', 'concurrency limit', 2)
+  .parse(process.argv);
+
+moveImages(mdPath, program.output, Number(program.concurrency));
